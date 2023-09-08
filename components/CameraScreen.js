@@ -98,13 +98,13 @@ const CameraScreen = () => {
     if (photo) {
 
         // Save image into SQLite database
-        let savePhoto = () => {
+        const savePhoto = () => {
             try {
 
                 const image =` ${photo.uri}`;
-
                 console.log("Taken pic uri:", image);
 
+                //Save image into SQLite database
                 db.transaction(tx => {
                     tx.executeSql(
                         'INSERT INTO photos (image_url) VALUES (?)',
@@ -116,7 +116,9 @@ const CameraScreen = () => {
                         }
                     );
                 });
+
             } catch (error) {
+
                 console.log('Error saving photo: ', error);
                 Alert.alert('Error', 'Failed to save photo.');
             }

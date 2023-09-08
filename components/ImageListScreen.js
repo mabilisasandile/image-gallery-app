@@ -33,7 +33,7 @@ const ImageListScreen = () => {
             });
         } catch (error) {
             console.log('Error occurred while fetching: ', error);
-
+            Alert.alert('Error', 'Images were not found!');
         }
     }
 
